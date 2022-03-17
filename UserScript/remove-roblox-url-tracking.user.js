@@ -12,6 +12,7 @@
 // @grant        none
 // @run-at       document-start
 // @noframes
+// @license      GPL-3.0 License
 // ==/UserScript==
 
 // For some reason userscripts run multiple times on roblox so noframes is added
