@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Remove Roblox URL Tracking
 // @namespace    http://tampermonkey.net/
-// @version      1.0
+// @version      1.1
 // @description  Removes the newly implemented roblox URL tracking method that roblox injects in their links on their website.
 // @author       ImFirstPlace
 // @match        *://www.roblox.com/*
@@ -34,8 +34,6 @@
                     return urlSplit[0]
                 }
             }
-            console.log(urlSplit)
-            console.log(knownTrackingParams.includes(urlSplit[1]))
         }
         return false // Don't bother setting the url exact same thing!
     }
@@ -55,7 +53,6 @@
         if (realUrl) {
             a.href = realUrl
         }
-        console.log(a.href)
     }
     document.addEventListener('click', handleClick, true);
     document.addEventListener('mousedown', handleClick, true);
