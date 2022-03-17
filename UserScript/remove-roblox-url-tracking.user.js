@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Remove Roblox URL Tracking
 // @namespace    http://tampermonkey.net/
-// @version      0.1
+// @version      1.0
 // @description  Removes the newly implemented roblox URL tracking method that roblox injects in their links on their website.
 // @author       ImFirstPlace
 // @match        *://www.roblox.com/*
