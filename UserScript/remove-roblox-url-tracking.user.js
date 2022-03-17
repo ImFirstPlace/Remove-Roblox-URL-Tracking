@@ -6,7 +6,7 @@
 // @author       ImFirstPlace
 // @match        *://www.roblox.com/*
 // @match        *://web.roblox.com/*
-// @icon         data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+// @icon         https://www.google.com/s2/favicons?domain=roblox.com
 // @downloadURL  https://github.com/ImFirstPlace/Remove-Roblox-URL-Tracking/raw/master/UserScript/remove-roblox-url-tracking.user.js
 // @updateURL    https://github.com/ImFirstPlace/Remove-Roblox-URL-Tracking/raw/master/UserScript/remove-roblox-url-tracking.user.js
 // @grant        none
