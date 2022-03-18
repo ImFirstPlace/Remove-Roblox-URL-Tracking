@@ -1,14 +1,12 @@
 // ==UserScript==
 // @name         Remove Roblox URL Tracking
 // @namespace    http://tampermonkey.net/
-// @version      1.0
-// @description  Removes the newly implemented roblox URL tracking method that roblox injects in their links on their website.
+// @version      1.1
+// @description  Removes the newly implemented roblox URL tracking parameters.
 // @author       ImFirstPlace
 // @match        *://www.roblox.com/*
 // @match        *://web.roblox.com/*
 // @icon         https://www.google.com/s2/favicons?domain=roblox.com
-// @downloadURL  https://github.com/ImFirstPlace/Remove-Roblox-URL-Tracking/raw/master/UserScript/remove-roblox-url-tracking.user.js
-// @updateURL    https://github.com/ImFirstPlace/Remove-Roblox-URL-Tracking/raw/master/UserScript/remove-roblox-url-tracking.user.js
 // @grant        none
 // @run-at       document-start
 // @noframes
@@ -22,15 +20,30 @@
 
     const knownTrackingParams = [
         "gameSetTypeId",
-        "homePageSessionInfo"
+        "homePageSessionInfo",
+        "SearchId",
+        "gameSearchSessionInfo"
     ]
-
 
     function sanitizeURL(Url) {
         var urlSplit = Url.split("?")
         if (urlSplit.length >= 2) {
+            const urlParams = new URLSearchParams(Url)
+
+            // Game referring
+            if (Url.includes("refer?") && urlParams.has("PlaceId")) {
+                return `https://www.roblox.com/games/${urlParams.get("PlaceId")}`
+            }
+
+            // Library referring
+            if (urlSplit[0].includes("/library/refer")) {
+                const slashSplit = urlSplit[0].split("/")
+                return `https://www.roblox.com/library/${slashSplit[5]}`
+            }
+
+            // General parameters
             for (const param of knownTrackingParams) {
-                if (urlSplit[1].includes(param)) {
+                if (urlSplit[1].includes(param)) { // urlParams.has seems to not work with the homePageSessionInfo param
                     return urlSplit[0]
                 }
             }
