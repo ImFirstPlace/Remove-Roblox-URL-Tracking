@@ -14,6 +14,7 @@ Source code: https://github.com/ImFirstPlace/Remove-Roblox-URL-Tracking
 ## Update log
 ### **1.0**
 - First release
+
 ### **1.1**
 - Now works for urls on the main discover page
 - Now works for urls on the library
